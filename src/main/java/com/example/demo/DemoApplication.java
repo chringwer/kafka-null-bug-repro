@@ -6,7 +6,9 @@ import java.util.function.Function;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.stream.binder.kafka.KafkaNullConverter;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Import;
 import org.springframework.integration.support.MessageBuilder;
 import org.springframework.kafka.support.KafkaNull;
 import org.springframework.messaging.Message;
@@ -15,6 +17,7 @@ import reactor.core.publisher.Flux;
 import reactor.util.function.Tuple2;
 
 @SpringBootApplication
+@Import(KafkaNullConverter.class)
 public class DemoApplication
 {
     public static void main(final String[] args)
